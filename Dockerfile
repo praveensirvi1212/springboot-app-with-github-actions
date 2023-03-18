@@ -1,5 +1,5 @@
 
-FROM adoptopenjdk/openjdk11:alpine-slim as build
+FROM khipu/openjdk17-alpine as build
 WORKDIR /app
 
 COPY mvnw .
@@ -10,7 +10,7 @@ COPY src src
 RUN ./mvnw package
 COPY target/*.jar app.jar
 
-FROM adoptopenjdk/openjdk11:alpine-slim
+FROM khipu/openjdk17-alpine
 VOLUME /tmp
 RUN addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
 WORKDIR /app
