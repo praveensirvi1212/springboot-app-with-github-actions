@@ -44,8 +44,7 @@ jobs:
         run: |
           minikube service list
           minikube service spring-boot-service --url
-          echo "------------------opening the service------------------"
-          curl $(minikube service spring-boot-service --url)
+         
          
  
 
